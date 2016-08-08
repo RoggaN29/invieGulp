@@ -1,21 +1,9 @@
 @import './variables.css';
 @import './iconfonts.css';
 
-@lost flexbox flex;
+/*@lost flexbox flex;*/
 
-/* -- Mixins */
-@define-mixin btn $textColor, $bgColor, $bgColorStart, $bgColorEnd {
-  border-radius: 12px;
-  border: none;
-  color: $(textColor);
-  padding: 7px 12px;
-  cursor: pointer;
-  font-size: var(--fontSize);
-  text-decoration: none;
-  background: $(bgColor);
-  background: linear-gradient(to left, $(bgColorStart), $(bgColorEnd))
-}
-
+/*Estilos de nuestro carrusel CSS Scroll Snap*/
 .u-scrollContainer {
   width: 100%;
   overflow: auto;
@@ -26,7 +14,7 @@
   font-size: 0;
 
   &-itemContainer {
-    border: 1px solid var(--border-feature);
+    border: 1px solid var(--border-freature);
     border-radius: 12px;
     width: 98%;
     margin: 1%;
@@ -37,15 +25,15 @@
 
   &-itemContent {
     display: flex;
+    justify-content: center;
 
     & > img {
       width: auto;
-      height: 200px;
+      height: 300px;
     }
   }
 }
-
-.u-Grid {
+/*.u-Grid {
   background: gray;
   lost-center: 800px;
   lost-utility: clearfix;
@@ -62,8 +50,7 @@
       lost-column: 1/1;
     }
   }
-}
-
+}*/
 .u-wrapper {
   max-width: 800px;
   margin: auto;
@@ -72,8 +59,11 @@
 
 .InvieHero {
   background: url('../images/background.png') var(--bg-header);
+  background-size: cover;
   padding: 20px;
-  height: 500px;
+  height: 450px;
+  color: white;
+  margin-bottom: 50px;
 
   @media (--retina) {
     background-image: url('../images/background2x.png');
@@ -85,8 +75,29 @@
     justify-content: space-between;
   }
 
+  &-menu{
+    font-size: 24px;
+    display: flex;
+    justify-content: space-around;    
+  
+    &-item a{
+      margin-right: 40px;
+      text-decoration: none;
+      color: white;
+      }
+  }
+
+  &-table{
+    width: 100%;
+  }
+
   &-logo {
+    margin-left:  0;
     transition: all 0.3s ease-in;
+
+    @media (--retina) {
+    background-image: url('../images/invie2x.png');
+  }
     &:hover {
       filter: blur(4px);
     }
@@ -95,23 +106,101 @@
   &-copy {
     &-title {
       color: var(--bg-body);
-      font-size: responsive 32px 70px;
+      font-size: responsive 32px 70px; /*ruckstack calcula autimaticamente el tamaño de la fuente responsive con un valor minimo de 32 y maximo de 70 */
+      font-family: 'Montserrat', sans-serif;
+      font-size: 70px;
+      margin-bottom: 0;
+      margin-top: 40px;
+
+      span{
+        text-decoration: underline;
+       }
 
       @media (--mobile) {
-        color: red;
+      color: red;
+        }
+
       }
-    }
+
+    &-subtitle{
+      margin-top: 10px;
+     }
 
     &-btn {
       @mixin btn var(--bg-body), var(--btn-gradient), var(--btn-gradient-start), var(--btn-gradient-end);
+      }
+  }
+
+  }
+
+.InvieGuitars{
+  font-family: 'Allerta', sans-serif;
+  margin: 0;
+
+  &-video{
+    display: flex;
+    justify-content: center;
+    /*margin: 20px 0 20px 0  ;*/
+  }
+
+  &-item{
+
+    &-img{
+
+      &-pro{
+      margin-right: 60px;
+        }
+
+      &-acustica{
+        @media (--retina) {
+        background-image: url('../images/invie-acustica2x.png');
+        }
+        
+        }
+
+      &-classic{
+        @media (--retina) {
+        background-image: url('../images/invie-classic2x.png');
+        }
+      }
+
     }
   }
+
 }
 
 .InvieFooter {
   background-color: var(--bg-footer);
+  color: white;
+  padding: 50px 10px;
+  margin-top: 50px;
+
+  &-container{
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  &-contact{
+    
+  }
+
+  &-logo{
+    display: block;
+    margin-bottom: 30px;
+  }
+
+  &-link{
+    text-decoration: none;
+    color: white;
+  }
 
   &-form {
+
+    &-column{
+      
+    }
+
     &-btn {
       @mixin btn var(--bg-body), var(--btn-gradient), var(--btn-gradient-start), var(--btn-gradient-end);
     }
